@@ -1,17 +1,21 @@
 <template>
   <button
+    :disabled="disabled"
     class="wqh-button"
     :style="[minWidthCss]"
     :class="[theme, isRound, isBorder, isSize]"
   >
-    <slot></slot>
+    <span>
+      <i v-if="prefix" class="iconfont icon-prefix" :class="iconPrefix"></i>
+      <slot></slot>
+      <i v-if="suffix" class="iconfont icon-suffix" :class="iconSuffix"></i>
+    </span>
   </button>
 </template>
 
 <script>
 export default {
   name: 'index',
-
   props: {
     type: {
       type: String,
@@ -25,14 +29,41 @@ export default {
       type: String,
       default: ''
     },
+    prefix: {
+      type: String,
+      default: ''
+    },
+    suffix: {
+      type: String,
+      default: ''
+    },
     round: Boolean,
     border: Boolean,
     disabled: Boolean
   },
-
-  minWidthCss() {
-    if (!this.minWidth) return ''
-    return { 'min-width': this.minWidth }
+  computed: {
+    theme() {
+      return this.type ? `wqh-button-${this.type}` : ''
+    },
+    isRound() {
+      return this.round ? 'is-round' : ''
+    },
+    isBorder() {
+      return this.border ? 'is-border' : ''
+    },
+    isSize() {
+      return this.size ? `wqh-button-${this.size}` : ''
+    },
+    minWidthCss() {
+      if (!this.minWidth) return ''
+      return { 'min-width': this.minWidth }
+    },
+    iconPrefix() {
+      return this.prefix ? `icon-${this.prefix}` : ''
+    },
+    iconSuffix() {
+      return this.suffix ? `icon-${this.suffix}` : ''
+    }
   }
 }
 </script>
@@ -52,6 +83,19 @@ export default {
 
   + .wqh-button {
     margin-left: 14px;
+  }
+
+  > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-prefix {
+    margin-right: 10px;
+  }
+  .icon-suffix {
+    margin-left: 10px;
   }
 }
 .wqh-button-medium {

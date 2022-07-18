@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <wqhButton>默认按钮</wqhButton>
-    <wqhButton type="primary" round disabled size="medium">成功按钮</wqhButton>
-    <wqhButton type="danger" round disabled size="small">危险按钮</wqhButton>
-    <wqhButton type="warning" round disabled size="mini">警告按钮</wqhButton>
+    <wqhButton size="medium" type="primary" >成功按钮</wqhButton>
+    <wqhButton type="danger" prefix="tongzhi" suffix="tongzhi">危险按钮</wqhButton>
+    <wqhButton type="warning" border >警告按钮</wqhButton>
   </div>
 </template>
 
