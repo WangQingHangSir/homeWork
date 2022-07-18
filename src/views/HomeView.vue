@@ -1,18 +1,22 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <wqhButton>默认按钮</wqhButton>
+    <wqhButton type="primary">成功按钮</wqhButton>
+    <wqhButton type="danger">危险按钮</wqhButton>
+    <wqhButton type="warning">警告按钮</wqhButton>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'HomeView',
+  data() {
+    return {
+      flag: false
+    }
+  },
   components: {
-    HelloWorld
+    wqhButton: () => import('../components/button/index.vue')
   }
 }
 </script>

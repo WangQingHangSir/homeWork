@@ -1,0 +1,46 @@
+<template>
+  <button class="wqh-button wqh-button-warning">
+    <slot></slot>
+  </button>
+</template>
+
+<script>
+export default {
+  name: 'index'
+}
+</script>
+
+<style lang="scss" scoped>
+.wqh-button {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dcdfe6;
+  height: 40px;
+  padding: 0 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #606266;
+  cursor: pointer;
+}
+.wqh-button-primary {
+  background-color: #409eff;
+  border-color: #409eff;
+  color: #fff;
+}
+.wqh-button-success {
+  background-color: #00d100;
+  border-color: #00d100;
+  color: #fff;
+}
+.wqh-button-danger {
+  background-color: #e6a23c;
+  border-color: #e6a23c;
+  color: #fff;
+}
+.wqh-button-warning {
+  background-color: #f56c6c;
+  border-color: #f56c6c;
+  color: #fff;
+}
+</style>
