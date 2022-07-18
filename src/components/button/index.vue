@@ -1,8 +1,8 @@
 <template>
   <button
     class="wqh-button"
+    :style="[minWidthCss]"
     :class="[theme, isRound, isBorder, isSize]"
-    :disabled="disabled"
   >
     <slot></slot>
   </button>
@@ -11,10 +11,15 @@
 <script>
 export default {
   name: 'index',
+
   props: {
     type: {
       type: String,
       default: ''
+    },
+    minWidth: {
+      type: String,
+      default: '95px'
     },
     size: {
       type: String,
@@ -24,19 +29,10 @@ export default {
     border: Boolean,
     disabled: Boolean
   },
-  computed: {
-    theme() {
-      return this.type ? `wqh-button-${this.type}` : ''
-    },
-    isRound() {
-      return this.round ? 'is-round' : ''
-    },
-    isBorder() {
-      return this.border ? 'is-border' : ''
-    },
-    isSize() {
-      return this.size ? `wqh-button-${this.size}` : ''
-    }
+
+  minWidthCss() {
+    if (!this.minWidth) return ''
+    return { 'min-width': this.minWidth }
   }
 }
 </script>
