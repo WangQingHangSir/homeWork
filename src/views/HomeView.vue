@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <wqhButton >默认按钮</wqhButton>
-    <wqhButton disabled :loading="flag" @click="handleSubmit" size="medium" type="primary"  >成功按钮</wqhButton>
+    <wqhButton  :loading="flag" @click="handleSubmit" size="medium" type="primary"  >成功按钮</wqhButton>
     <wqhButton type="danger" >危险按钮</wqhButton>
     <wqhButton type="warning" >警告按钮</wqhButton>
   </div>
