@@ -1,5 +1,5 @@
 <template>
-  <button class="wqh-button" :class="[theme]">
+  <button class="wqh-button" :class="[theme,isRound,isBorder]" :disabled="disabled">
     <slot></slot>
   </button>
 </template>
@@ -11,11 +11,20 @@ export default {
     type: {
       type: String,
       default: ''
-    }
+    },
+    round: Boolean,
+    border: Boolean,
+    disabled: Boolean
   },
   computed: {
     theme () {
-      return this.type ? `wqh-button-${this.type}` : ''
+      return this.type ? `yang-button-${this.type}` : ''
+    },
+    isRound () {
+      return this.round ? 'is-round' : ''
+    },
+    isBorder () {
+      return this.border ? 'is-border' : ''
     }
   }
 }
