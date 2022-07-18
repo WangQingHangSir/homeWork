@@ -1,7 +1,7 @@
 <template>
-  <button class="wqh-button wqh-button-warning">
-    <slot></slot>
-  </button>
+<button disabled class="yang-button yang-button-primary is-round">
+   <slot></slot>
+</button>
 </template>
 
 <script>
@@ -42,5 +42,9 @@ export default {
   background-color: #f56c6c;
   border-color: #f56c6c;
   color: #fff;
+}
+.wqh-button[disabled]{
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 </style>
