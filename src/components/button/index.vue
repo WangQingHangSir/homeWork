@@ -1,12 +1,23 @@
 <template>
-<button disabled class="yang-button yang-button-primary is-round">
-   <slot></slot>
-</button>
+  <button class="wqh-button" :class="[theme]">
+    <slot></slot>
+  </button>
 </template>
 
 <script>
 export default {
-  name: 'index'
+  name: 'index',
+  props: {
+    type: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    theme () {
+      return this.type ? `wqh-button-${this.type}` : ''
+    }
+  }
 }
 </script>
 
