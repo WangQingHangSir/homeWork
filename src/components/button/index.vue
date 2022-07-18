@@ -1,5 +1,9 @@
 <template>
-  <button class="wqh-button" :class="[theme,isRound,isBorder]" :disabled="disabled">
+  <button
+    class="wqh-button"
+    :class="[theme, isRound, isBorder, isSize]"
+    :disabled="disabled"
+  >
     <slot></slot>
   </button>
 </template>
@@ -12,19 +16,26 @@ export default {
       type: String,
       default: ''
     },
+    size: {
+      type: String,
+      default: ''
+    },
     round: Boolean,
     border: Boolean,
     disabled: Boolean
   },
   computed: {
-    theme () {
-      return this.type ? `yang-button-${this.type}` : ''
+    theme() {
+      return this.type ? `wqh-button-${this.type}` : ''
     },
-    isRound () {
+    isRound() {
       return this.round ? 'is-round' : ''
     },
-    isBorder () {
+    isBorder() {
       return this.border ? 'is-border' : ''
+    },
+    isSize() {
+      return this.size ? `wqh-button-${this.size}` : ''
     }
   }
 }
@@ -42,29 +53,69 @@ export default {
   font-size: 14px;
   color: #606266;
   cursor: pointer;
+
+  + .wqh-button {
+    margin-left: 14px;
+  }
+}
+.wqh-button-medium {
+  height: 38px;
+}
+.wqh-button-small {
+  padding: 0 15px;
+  height: 32px;
+  font-size: 12px;
+}
+.wqh-button-mini {
+  padding: 0 15px;
+  height: 28px;
+  font-size: 12px;
+}
+.wqh-button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 .wqh-button-primary {
   background-color: #409eff;
   border-color: #409eff;
   color: #fff;
+  &.is-border {
+    background-color: transparent;
+    color: #409eff;
+  }
 }
 .wqh-button-success {
   background-color: #00d100;
   border-color: #00d100;
   color: #fff;
+  &.is-border {
+    background-color: transparent;
+    color: #00d100;
+  }
 }
 .wqh-button-danger {
   background-color: #e6a23c;
   border-color: #e6a23c;
   color: #fff;
+  &.is-border {
+    background-color: transparent;
+    color: #e6a23c;
+  }
 }
 .wqh-button-warning {
   background-color: #f56c6c;
   border-color: #f56c6c;
   color: #fff;
+  &.is-border {
+    background-color: transparent;
+    color: #f56c6c;
+  }
 }
-.wqh-button[disabled]{
-  cursor: not-allowed;
-  opacity: 0.5;
+
+/**
+ * 圆角
+ */
+.is-round {
+  border-radius: 100px;
 }
 </style>
