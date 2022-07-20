@@ -1,45 +1,91 @@
 <template>
   <div class="home">
-    <wqh-table :column="column" checkbox index>
-      <template v-slot:operation>
-        <el-button type="primary">编辑</el-button>
-        <wqh-button type="danger">删除</wqh-button>
+    <el-button type="primary" @click="getCheckList">测试获取复选框选中的数据</el-button>
+    <yang-table  init-request  @onLoad="onLoad" :check-list.sync="checkList"  :column="column" index checkbox :data="data_1" :params="params_1" url="/name/" method="post">
+      <template v-slot:operation="slot">
+        <yang-button type="primary" @click="handleEdit(slot.data)">编辑</yang-button>
+        <yang-button type="danger" @click="handleDelete(slot.data)">删除</yang-button>
+        <yang-button type="success" @click="handleEdit(slot.data)">编辑</yang-button>
+        <yang-button type="warning" @click="handleDelete(slot.data)">删除</yang-button>
       </template>
-    </wqh-table>
+    </yang-table>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'Home',
-  data() {
+  data () {
     return {
       column: [
         {
-          label: 'URL地址',
-          type: 'function',
-          prop: 'date',
-          callback: (data) => {
-            return `<a href="https://www.baidu.com">${data.name}</a>`
-          }
+          label: '姓名',
+          prop: 'name'
         },
-        // { label: '日期', prop: 'date', width: 500 },
-        { label: '姓名', prop: 'name' },
-        { label: '地址', prop: 'address' },
-        { label: '性别', prop: 'sex' },
+        {
+          label: '创建时间',
+          prop: 'create_date',
+          sort: true,
+          sortBy: 'a.xx'
+        },
+        {
+          label: '广告图片',
+          prop: 'url',
+          type: 'image'
+        },
         {
           label: '操作',
-          prop: 'operation',
           type: 'slot',
-          slot_name: 'operation'
+          slot_name: 'operation',
+          prop: 'operation'
         }
-      ]
+      ],
+      data_1: {
+        name: 'jack'
+      },
+      params_1: {
+        name: 'rose'
+      },
+      checkList: []
+    }
+  },
+  watch: {
+    checkList: {
+      handler (val) {
+        console.log(val)
+      },
+      deep: true
     }
   },
   components: {
-    wqhTable: () => import('../components/table/index.vue'),
-    wqhButton: () => import('../components/button/index.vue')
+    yangButton: () => import('../components/button/index.vue'),
+    yangTable: () => import('../components/table/index.vue')
   },
-  methods: {}
+  methods: {
+    getCheckList () {
+      console.log(this.checkList)
+    },
+    handleEdit (row) {
+      console.log(row)
+    },
+    handleDelete (row) {
+      console.log(row)
+    },
+    onLoad (data) {
+      console.log(data)
+    },
+    formatData (data) {
+      const tableData = data.data
+      tableData.forEach(item => {
+        item.gender = item.gender === '男' ? 1 : 0
+      })
+      return tableData
+    }
+  }
 }
 </script>
+
+<style scoped>
+
+</style>
