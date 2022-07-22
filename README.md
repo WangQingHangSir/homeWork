@@ -1,4 +1,4 @@
-# component
+# admin-cms
 
 ## Project setup
 ```

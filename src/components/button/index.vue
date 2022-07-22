@@ -1,35 +1,36 @@
 <template>
-  <button
-    @click="change"
-    :disabled="disabled || loading"
-    class="wqh-button"
-    :style="[minWidthCss]"
-    :class="[theme, isRound, isBorder, isSize, blockCss]"
-  >
-    <span>
-      <i v-if="loading" class="iconfont icon-prefix icon-loading"></i>
-      <i v-if="prefix" class="iconfont icon-prefix" :class="iconPrefix"></i>
-      <slot></slot>
-      <i v-if="suffix" class="iconfont icon-suffix" :class="iconSuffix"></i>
-    </span>
-  </button>
+  <div id="app">
+    <button
+      class="zy-button"
+      @click="change"
+      :disabled="disabled || loading"
+      :style="[minWidthCss]"
+      :class="[theme, isRound, isBorder, isSize, blockCss]"
+    >
+      <span>
+        <i v-if="loading" class="iconfont icon-prefix icon-loading"></i>
+        <i v-if="prefix" class="iconfont icon-prefix" :class="iconPrefix"></i>
+        <slot></slot>
+        <i v-if="suffix" class="iconfont icon-suffix" :class="iconSuffix"></i>
+      </span>
+    </button>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'index',
   props: {
     type: {
+      type: String,
+      default: ''
+    },
+    size: {
       type: String,
       default: ''
     },
     minWidth: {
       type: String,
       default: '95px'
-    },
-    size: {
-      type: String,
-      default: ''
     },
     prefix: {
       type: String,
@@ -47,7 +48,7 @@ export default {
   },
   computed: {
     theme() {
-      return this.type ? `wqh-button-${this.type}` : ''
+      return this.type ? `zy-button-${this.type}` : ''
     },
     isRound() {
       return this.round ? 'is-round' : ''
@@ -56,7 +57,7 @@ export default {
       return this.border ? 'is-border' : ''
     },
     isSize() {
-      return this.size ? `wqh-button-${this.size}` : ''
+      return this.size ? `yang-button-${this.size}` : ''
     },
     minWidthCss() {
       if (!this.minWidth) return ''
@@ -69,7 +70,7 @@ export default {
       return this.suffix ? `icon-${this.suffix}` : ''
     },
     blockCss() {
-      return this.block ? 'wqh-button-block' : ''
+      return this.block ? 'zy-button-block' : ''
     }
   },
   methods: {
@@ -79,114 +80,6 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.wqh-button {
-  border-width: 1px;
-  border-style: solid;
-  border-color: #dcdfe6;
-  height: 40px;
-  padding: 0 20px;
-  background-color: #fff;
-  border-radius: 4px;
-  font-size: 14px;
-  color: #606266;
-  cursor: pointer;
-
-  + .wqh-button {
-    margin-left: 14px;
-    margin-bottom: 10px;
-  }
-
-  > span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .icon-prefix {
-    margin-right: 10px;
-  }
-  .icon-suffix {
-    margin-left: 10px;
-  }
-}
-.wqh-button-medium {
-  height: 38px;
-}
-.wqh-button-small {
-  padding: 0 15px;
-  height: 32px;
-  font-size: 12px;
-}
-.wqh-button-mini {
-  padding: 0 15px;
-  height: 28px;
-  font-size: 12px;
-}
-.wqh-button[disabled] {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-.wqh-button-primary {
-  background-color: #409eff;
-  border-color: #409eff;
-  color: #fff;
-  &.is-border {
-    background-color: transparent;
-    color: #409eff;
-  }
-}
-.wqh-button-success {
-  background-color: #00d100;
-  border-color: #00d100;
-  color: #fff;
-  &.is-border {
-    background-color: transparent;
-    color: #00d100;
-  }
-}
-.wqh-button-danger {
-  background-color: #e6a23c;
-  border-color: #e6a23c;
-  color: #fff;
-  &.is-border {
-    background-color: transparent;
-    color: #e6a23c;
-  }
-}
-.wqh-button-warning {
-  background-color: #f56c6c;
-  border-color: #f56c6c;
-  color: #fff;
-  &.is-border {
-    background-color: transparent;
-    color: #f56c6c;
-  }
-}
-
-/*** 圆角 */
-.is-round {
-  border-radius: 100px;
-}
-/**块级按钮*/
-.wqh-button-block {
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin-bottom: 0;
-}
-/**loading动画加载*/
-.icon-loading {
-  animation: loading 2s infinite linear;
-}
-
-@keyframes loading {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+<style scoped lang="scss">
+@import './index.scss';
 </style>
