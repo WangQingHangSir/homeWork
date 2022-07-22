@@ -1,11 +1,11 @@
 <template>
   <div class="article-container">
-    <yang-table :format="formatData" :column="column" init-request index url="/article/advert/search" method="POST">
+    <wqh-table :format="formatData" :column="column" init-request index url="/article/advert/search" method="POST">
       <template v-slot:operation="slot">
         <el-button type="primary" @click="handleEdit(slot)" icon="el-icon-edit">编辑</el-button>
         <el-button type="danger" @click="handleDelete(slot)" icon="el-icon-delete">删除</el-button>
       </template>
-    </yang-table>
+    </wqh-table>
   </div>
 </template>
 
@@ -51,7 +51,7 @@ export default {
     }
   },
   components: {
-    yangTable: () => import('../components/table/index.vue')
+    wqhTable: () => import('../components/table/index.vue')
   },
   methods: {
     handleEdit (row) {

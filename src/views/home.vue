@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-    <zy-button disabled>默认按钮</zy-button>
-    <zy-button type="primary" round :loading="flag" @click="handleSubmit"
-      >成功按钮</zy-button
+    <wqh-button disabled>默认按钮</wqh-button>
+    <wqh-button type="primary" round :loading="flag" @click="handleSubmit"
+      >成功按钮</wqh-button
     >
-    <zy-button type="danger" suffix="tongzhi">危险按钮</zy-button>
-    <zy-button type="warning" block>警告按钮</zy-button>
+    <wqh-button type="danger" suffix="tongzhi">危险按钮</wqh-button>
+    <wqh-button type="warning" block>警告按钮</wqh-button>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
     }
   },
   components: {
-    zyButton: () => import('../components/Button')
+    wqhButton: () => import('../components/Button')
   },
   methods: {
     handleSubmit() {

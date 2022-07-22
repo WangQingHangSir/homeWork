@@ -37,7 +37,7 @@
 <script>
 import createRules from './createRules'
 export default {
-  name: 'zyForm',
+  name: 'wqhForm',
   props: {
     item: {
       type: Array,

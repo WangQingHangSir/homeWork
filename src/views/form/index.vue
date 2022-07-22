@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     form表单
-    <zy-Form :item="formItem" :field="formField" :button="formButton"></zy-Form>
+    <wqh-Form :item="formItem" :field="formField" :button="formButton"></wqh-Form>
   </div>
 </template>
 
 <script>
 export default {
   components: {
-    zyForm: () => import('@/components/Form')
+    wqhForm: () => import('@/components/Form')
   },
   data() {
     return {

@@ -1,14 +1,14 @@
 <template>
   <div class="home">
     <el-button type="primary" @click="getCheckList">测试获取复选框选中的数据</el-button>
-    <yang-table  init-request  @onLoad="onLoad" :check-list.sync="checkList"  :column="column" index checkbox :data="data_1" :params="params_1" url="/name/" method="post">
+    <wqh-table  init-request  @onLoad="onLoad" :check-list.sync="checkList"  :column="column" index checkbox :data="data_1" :params="params_1" url="/name/" method="post">
       <template v-slot:operation="slot">
-        <yang-button type="primary" @click="handleEdit(slot.data)">编辑</yang-button>
-        <yang-button type="danger" @click="handleDelete(slot.data)">删除</yang-button>
-        <yang-button type="success" @click="handleEdit(slot.data)">编辑</yang-button>
-        <yang-button type="warning" @click="handleDelete(slot.data)">删除</yang-button>
+        <wqh-button type="primary" @click="handleEdit(slot.data)">编辑</wqh-button>
+        <wqh-button type="danger" @click="handleDelete(slot.data)">删除</wqh-button>
+        <wqh-button type="success" @click="handleEdit(slot.data)">编辑</wqh-button>
+        <wqh-button type="warning" @click="handleDelete(slot.data)">删除</wqh-button>
       </template>
-    </yang-table>
+    </wqh-table>
   </div>
 </template>
 
@@ -59,8 +59,8 @@ export default {
     }
   },
   components: {
-    yangButton: () => import('../components/button/index.vue'),
-    yangTable: () => import('../components/table/index.vue')
+    wqhButton: () => import('../components/button/index.vue'),
+    wqhTable: () => import('../components/table/index.vue')
   },
   methods: {
     getCheckList () {

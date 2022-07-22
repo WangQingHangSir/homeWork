@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <button
-      class="zy-button"
+      class="wqh-button"
       @click="change"
       :disabled="disabled || loading"
       :style="[minWidthCss]"
@@ -48,7 +48,7 @@ export default {
   },
   computed: {
     theme() {
-      return this.type ? `zy-button-${this.type}` : ''
+      return this.type ? `wqh-button-${this.type}` : ''
     },
     isRound() {
       return this.round ? 'is-round' : ''
@@ -57,7 +57,7 @@ export default {
       return this.border ? 'is-border' : ''
     },
     isSize() {
-      return this.size ? `yang-button-${this.size}` : ''
+      return this.size ? `wqh-button-${this.size}` : ''
     },
     minWidthCss() {
       if (!this.minWidth) return ''
@@ -70,7 +70,7 @@ export default {
       return this.suffix ? `icon-${this.suffix}` : ''
     },
     blockCss() {
-      return this.block ? 'zy-button-block' : ''
+      return this.block ? 'wqh-button-block' : ''
     }
   },
   methods: {

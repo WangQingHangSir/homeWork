@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <zy-table
+    <wqh-table
       init-request
       :tableData="tableData"
       :column="column"
@@ -12,19 +12,19 @@
       method="post"
     >
       <template v-slot:operation="slot">
-        <zy-button type="primary" @click="handleEdit(slot.data)"
-          >编辑</zy-button
+        <wqh-button type="primary" @click="handleEdit(slot.data)"
+          >编辑</wqh-button
         >
-        <zy-button type="danger" @click="handleDelete(slot.data)"
-          >删除</zy-button
+        <wqh-button type="danger" @click="handleDelete(slot.data)"
+          >删除</wqh-button
         >
-        <zy-button type="success" @click="handleEdit(slot.data)"
-          >编辑</zy-button
+        <wqh-button type="success" @click="handleEdit(slot.data)"
+          >编辑</wqh-button
         >
-        <zy-button type="warning" @click="handleDelete(slot.data)"
-          >删除</zy-button
+        <wqh-button type="warning" @click="handleDelete(slot.data)"
+          >删除</wqh-button
         >
-      </template></zy-table
+      </template></wqh-table
     >
   </div>
 </template>
@@ -32,8 +32,8 @@
 <script>
 export default {
   components: {
-    zyButton: () => import('@/components/button'),
-    zyTable: () => import('@/components/table')
+    wqhButton: () => import('@/components/button'),
+    wqhTable: () => import('@/components/table')
   },
   data() {
     return {

@@ -1,6 +1,6 @@
 <template>
   <div class="article-container">
-    <zyTable
+    <wqhTable
       :format="formatData"
       :column="column"
       init-request
@@ -19,7 +19,7 @@
           >删除</el-button
         >
       </template>
-    </zyTable>
+    </wqhTable>
   </div>
 </template>
 
@@ -71,7 +71,7 @@ export default {
     }
   },
   components: {
-    zyTable: () => import('@/components/table')
+    wqhTable: () => import('@/components/table')
   },
   methods: {
     handleEdit(row) {
