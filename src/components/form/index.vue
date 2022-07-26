@@ -22,7 +22,7 @@ files.keys().forEach(item => {
 })
 console.log(modules)
 export default {
-  name: 'yangForm',
+  name: 'wqhForm',
   components: {
     ...modules
   },
